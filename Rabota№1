@@ -1,0 +1,13 @@
+spisok = ['a','b','c','d','e','f','j','h','a','a']
+spisok2 = spisok.copy()
+print(spisok[-2], spisok[0], spisok[4])
+spisok[1] = 'goida'
+print(spisok[1])
+print(spisok[5:9])
+spisok.append('rofl')
+print(spisok)
+spisok.insert(2, 'Z')
+print(spisok)
+print(spisok.count('a'))
+print(spisok)
+print(spisok2)
