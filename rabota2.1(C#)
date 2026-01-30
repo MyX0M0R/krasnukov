@@ -1,0 +1,48 @@
+class Game
+{
+    string name;
+    string year;
+    string zhanr;
+    string price;
+
+    public Game(string name, string year, string zhanr, string price)
+    {
+        this.name = name;
+        this.price = price;
+        this.year = year;
+        this.zhanr = zhanr;
+        Console.WriteLine($"Название: {name} \nГод выпуска: {year} \nЖанр: {zhanr} \nЦена: {price}");
+    }
+}
+class Nastolnya : Game
+{
+    string kolichestvo;
+    string duration;
+
+    public Nastolnya(string name, string year, string zhanr, string price, string kolichestvo, string duration) : base(name, year, zhanr, price)
+    {
+        this.kolichestvo = kolichestvo;
+        this.duration = duration;
+        Console.WriteLine($"Количество игроков: {kolichestvo} \nвремя игры: {duration}");
+    }
+}
+class Video : Game
+{
+    string vozrast;
+    string device;
+
+    public Video(string name, string year, string zhanr, string price, string vozrast, string device) : base(name, year, zhanr, price)
+    {
+        this.device = device;
+        this.vozrast = vozrast;
+        Console.WriteLine($"устройство: {device} \nвозрастное ограничние: {vozrast}");
+    }
+}
+public class Program
+{
+    public static void Main()
+    {
+        Nastolnya game1 = new Nastolnya("Дженга", "Стратегия", "1983", "3000", "2-4", "10 минут");
+        Video game2 = new Video("Террария", "Песочница", "2011", "350", "12+", "Компьютер");
+    }
+}
