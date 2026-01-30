@@ -1,0 +1,32 @@
+class game:
+    def __init__(self, name, zhanr, year, price):
+        self.name = name
+        self.zhanr = zhanr
+        self.year = year
+        self.price = price
+        
+    def display(self):
+        print(f"Название: {self.name}"
+        f"\nЖанр: {self.zhanr}"
+        f"\nГод выпуска: {self.year}"
+        f"\nЦена: {self.price} руб")
+        
+class nastolnya(game):
+    def __init__ (self, name, zhanr, year, price, kolichestvo, duration):
+        super(). __init__(name, zhanr, year, price)
+        self.kolichestvo = kolichestvo
+        self.duration = duration
+        
+class video(game):
+    def __init__ (self, name, zhanr, year, price, vozrast, device):
+        super().__init__(name, zhanr, year, price)
+        self.vozrast = vozrast
+        self.device = device
+        
+game1 = nastolnya("Дженга", "Стратегия", 1983, 3000, "2-4", "10 минут")
+
+game2 = video("Террария", "Песочница", 2011, 350, "12+", "Компьютер")
+
+game1.display()
+game2.display()
+        
