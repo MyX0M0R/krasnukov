@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Office.Interop.Excel;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Application excelApp = new Application();
+
+            if (excelApp == null)
+            {
+                Console.WriteLine("Excel is not installed!!");
+            }
+
+            Workbook excelBook = excelApp.Workbooks.Open(@"D:\readExample.xlsx");
+            _Worksheet excelSheet = excelBook.Sheets[1];
+            Range excelRange = excelSheet.UsedRange;
+
+            int rows = excelRange.Rows.Count;
+            int cols = excelRange.Columns.Count;
+
+            for (int i = 1; i <= rows; i++)
+            {
+                йцу
+            }
+        }
+    }
+}
