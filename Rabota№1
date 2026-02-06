@@ -1,14 +1,22 @@
-spisok = ['a','b','c','d','e','f','j','h','a','a']
-spisok2 = spisok.copy()
+#Задание 1
+spisok = ['a','b','c','d','e','f','j','h','a','a'] 
+#Задание 2
 print(spisok[-2], spisok[0], spisok[4])
-spisok[1] = 'goida'
-print(spisok[1])
+#Задание 3
+spisok[2] = 'goida'
+print(spisok[2])
+#Задание 4
 print(spisok[5:9])
+#задание 5
 spisok.append('rofl')
 print(spisok)
-spisok.insert(5, 'Z')
+#Задание 6
+spisok.insert(len(spisok)//2, 'Z')
 print(spisok)
+#Задание 7
 print(spisok.count('a'))
+#Задание 8
+spisok2 = spisok.copy()
+spisok2[1] = 'qwerty'
 print(spisok)
 print(spisok2)
-
