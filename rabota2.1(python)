@@ -10,6 +10,10 @@ class game:
         f"\nЖанр: {self.zhanr}"
         f"\nГод выпуска: {self.year}"
         f"\nЦена: {self.price} руб")
+    
+    def ocenka(self):
+        if self.year < 2000:
+            print("Старая игра")
         
 class nastolnya(game):
     def __init__ (self, name, zhanr, year, price, kolichestvo, duration):
@@ -28,5 +32,6 @@ game1 = nastolnya("Дженга", "Стратегия", 1983, 3000, "2-4", "10 �
 game2 = video("Террария", "Песочница", 2011, 350, "12+", "Компьютер")
 
 game1.display()
+game1.ocenka()
 game2.display()
-        
+game2.ocenka()
