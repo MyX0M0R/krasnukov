@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            foreach(Process process in Process.GetProcesses())
+            {
+                Console.WriteLine($"Id: {process.Id} Name: {process.ProcessName}");
+            }
+
+            Process proc = Process.GetProcessesByName("devenv")[0];
+            ProcessThreadCollection processThreads = proc.Threads;
+
+            foreach(ProcessThread thread in processThreads)
+            {
+                Console.WriteLine($"ThreadId: {thread.Id}");
+            }
+
+            Process.Start(@"C:\Program Files\Google\Chrome\Application\Chrome");
+            Process.Start(@"C:\Program Files (x86)\Microsoft\Edge\Application\msedge");
+        }
+    }
+}
