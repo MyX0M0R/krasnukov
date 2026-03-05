@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Application = Microsoft.Office.Interop.Excel.Application;
+
+namespace WindowsFormsApp1
+{
+
+    public partial class Form1: Form
+    {
+
+        public Form1()
+        {
+
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            WebClient Client = new WebClient();
+            Client.DownloadFile("https://www.cmu.edu/blackboard/files/evaluate/tests-example.xls", "tests-example.xls");
+
+            Application excelApp = new Application();
+
+            if (excelApp == null)
+            {
+                textBox1.Text = ("Excel is not installed!");
+                return;
+            }
+
+            Workbook excelBook = excelApp.Workbooks.Open(@"C:\Users\23_ИП-291к\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\tests-example.xls");
+            _Worksheet excelSheet = excelBook.Sheets[2];
+            Range excelRange = excelSheet.UsedRange;
+
+            int rows = excelRange.Rows.Count;
+            int cols = excelRange.Columns.Count;
+
+            for (int i = 1; i <= rows; i++)
+            {
+                textBox1.Text += ("\r\n");
+                for (int j = 1; j <= cols; j++)
+                {
+                    if (excelRange.Cells[i, j] != null && excelRange.Cells[i, j].Value2 != null)
+                        textBox1.Text += (excelRange.Cells[i, j].Value2.ToString() + "\t");
+                }
+            }
+            excelApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
+        }
+    }
+}
